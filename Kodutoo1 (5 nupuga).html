@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content=Type" content="text/html; charset=utf-8">
+		<title>Kodune töö 5 nuppu.</title>
+		<style>
+			.nupud 
+			{
+				display: flex;
+				justify-content: center;
+				background-color: aqua;
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+
+			.tekstpilt
+			{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+		</style>
+		<script type="text/javascript">
+			function refreshii() 
+			{
+				document.location.reload();
+				teade("Lehekülg värskendatakse");
+			}
+
+			function ChangeText()
+			{
+				document.getElementById("p1").innerHTML="Vajuta nuppu pilt!";
+				document.getElementById("p1").style.color="black";
+				teade("'Tere Tulemast' asemele tuleb uus tekst");
+			}
+
+			function taustamuutus()
+			{
+				document.body.style.background = "cyan";
+				teade("Lehekülje tausta värv muutub");
+			}
+
+			function ChangeText1()
+			{
+				document.getElementById("p1").style.color="white";
+				document.getElementById("p1").style.backgroundColor="blue";
+				document.getElementById("p1").style.fontFamily="Arial black";
+				teade("Teksti taust muutub siniseks ja kiri valgeks");
+			}
+
+			function Pildilink()
+			{
+				document.getElementById("lamp").src="https://images.pexels.com/photos/1010496/pexels-photo-1010496.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+				document.getElementById("lamp").width="640"
+				document.getElementById("lamp").height="426"
+				teade("Kuvatakse pilt");
+			}
+
+			function teade(tekst) {
+				alert(tekst);
+			}
+		</script>
+	</head>
+	<body>
+		<div class="nupud">
+			<input type="button" onclick="refreshii()"
+			value="Reload" style="width: 100px">
+
+			<input type="button" onClick="ChangeText()"
+			Value="Teksti muutja" style="width: 100px;">
+
+			<input type="button" onclick="taustamuutus()"
+			Value="Tausta värv" style="width: 100px;">
+
+			<input type="button" onClick="ChangeText1()"
+			Value="Teksti värv" style="width: 100px;">
+
+			<input type="button" onclick="Pildilink()"
+			Value="Pilt" style="width: 100px;">
+		</div>
+		<div class="tekstpilt">
+			<p id="p1">Tere Tulemast!</p>
+			<img id="lamp"></img>
+		</div>
+	</body>
+</html>

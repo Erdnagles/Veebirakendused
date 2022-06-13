@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Show/Hide images with jQuery</title>
+    <script src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js">
+    </script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+
+    <style>
+        .placement {
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .imgInImg {
+            position: absolute;
+            display: inline-block;
+            top: 10px;
+            left: 10px;
+            z-index: 2;
+        }
+
+        .displayNone {
+            display: none;
+        }
+    </style>
+
+    <script language="Javascript">
+
+        $(document).ready(function () {
+            $('#btn1').on("click", function (e) {
+                $('#img1').toggle('slow');
+                if ($("#img1").is(':visible'))
+                    $("#img2").hide('explode');
+            });
+
+
+            $('#btn2').on("click", function (e) {
+                if ($('#img2').toggle('fold'))
+                    $("#img1").hide('fold');
+            });
+
+
+
+            $('#btn3').on("click", function (e) {
+                $('#img3').toggle('slow');
+                if ($("#img3").is(':visible'))
+                    $("#img4").hide('slow');
+            });
+
+
+            $('#btn4').on("click", function (e) {
+                if ($('#img4').toggle('slow'))
+                    $("#img3").hide('slow');
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <button type="button" id="btn1">Esimene taust</button>
+    <button type="button" id="btn2">Teine taust</button>
+    <button type="button" id="btn3">Esimene element</button>
+    <button type="button" id="btn4">Teine element</button>
+
+    <div class="placement">
+        <img class="displayNone" src="https://picsum.photos/id/1039/400/400" alt="First Background" id="img1" />
+        <img class="displayNone" src="https://picsum.photos/id/1037/400/400" alt="Second Background" id="img2" />
+        <div class="imgInImg">
+            <img class="displayNone" src="https://picsum.photos/id/1024/150/150" alt="First Element" id="img3" />
+            <img class="displayNone" src="https://picsum.photos/id/244/150/150" alt="Second Element" id="img4" />
+        </div>
+    </div>
+</body>
+
+</html>

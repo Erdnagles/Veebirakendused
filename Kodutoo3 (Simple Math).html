@@ -1,0 +1,113 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>Lihtsad matemaatika tehted.</title>
+	<script language="JavaScript">
+
+		function DoAdd()
+		{
+			var Value1 = new Number(
+				document.getElementById("Value1").value);
+			var Value2 = new Number(
+				document.getElementById("Value2").value);
+
+			document.getElementById("Result").setAttribute(
+				"value", Value1 + Value2);
+
+            this.CheckResult('+', Value1, Value2)
+		}
+		
+		function DoSub()
+		{
+			var Value1 = new Number(
+				document.getElementById("Value1").value);
+			var Value2 = new Number(
+				document.getElementById("Value2").value);
+			
+			document.getElementById("Result").setAttribute(
+				"value", Value1 - Value2);
+
+            this.CheckResult('-', Value1, Value2)	
+		}
+		
+		function DoMul()
+		{
+			var Value1 = new Number(
+				document.getElementById("Value1").value);
+			var Value2 = new Number(
+				document.getElementById("Value2").value);
+			
+			document.getElementById("Result").setAttribute(
+				"value", Value1 * Value2);	
+
+            this.CheckResult('*', Value1, Value2)		
+		}
+	
+		function DoDiv()
+		{
+			var Value1 = new Number(
+				document.getElementById("Value1").value);
+			var Value2 = new Number(
+				document.getElementById("Value2").value);
+			
+			document.getElementById("Result").setAttribute(
+				"value", Value1 / Value2);
+            
+            this.CheckResult('/', Value1, Value2)
+		}
+
+        function CheckResult(Calculation, Value1, Value2) {
+            var Result = new Number(
+				document.getElementById("Result").value);
+
+            var calcResult = null;
+
+            if (Calculation == '+') {
+                calcResult = Value1+Value2;
+            } else if (Calculation == '-') {
+                calcResult = Value1-Value2;
+            } else if (Calculation == '*') {
+                calcResult = Value1*Value2;
+            } else {
+                calcResult = Value1/Value2;
+            }
+
+            if (Result==calcResult) {
+                alert('Correct!')
+            } else {
+                alert("Not Correct!");
+            } 
+        }
+
+	</script>
+</head>
+
+<body>
+	<h1>Lihtsad matemaatika tehted</h1>
+	<p>
+	Value1:
+	<input type="text" id="Value1"value="">
+	</p>
+	<p>
+	Value2:
+	<input type="text" id="Value2"value="">
+	</p>
+	<p>
+	Result:
+	<input type="text" id="Result"value="">
+	</p>
+	<input type="button"
+		   value="+"
+		   onclick="DoAdd()"/>
+	<input type="button"
+		   value="-"
+		   onclick="DoSub()"/>
+	<input type="button"
+		   value="*"
+		   onclick="DoMul()"/>
+	<input type="button"
+		   value="/"
+		   onclick="DoDiv()"/>
+</body>
+</html>
